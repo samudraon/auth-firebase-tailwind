@@ -4,7 +4,7 @@ import { AuthContext } from './providers/AuthProviders';
 
 const Login = () => {
 
-    const { singIn } = useContext(AuthContext);
+    const { signIn } = useContext(AuthContext);
 
     const handleLogin = event => {
         event.preventDefault();
@@ -14,13 +14,13 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
 
-        singIn(email, password)
+        signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
             })
             .catch(error => {
-                console.log(error);
+                console.error(error);
             })
     }
 
@@ -42,7 +42,7 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="text" name='password' placeholder="password" className="input input-bordered" required />
+                            <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
